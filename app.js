@@ -3,6 +3,7 @@ const socket = require("socket.io");
 const http = require("http");
 const { Chess } = require("chess.js");
 const path = require("path");
+require("dotenv").config()
 
 const app = express();
 const server = http.createServer(app);
@@ -67,6 +68,6 @@ io.on("connection", (uniquesocket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log("Server Activated: 3000");
+server.listen(process.env.PORT || 5000, () => {
+  console.log("Server Activated: 5000");
 });
